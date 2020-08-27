@@ -1,28 +1,58 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="pageHeader">
+       <pageHeader msg="pageHeader"/>
+    </div>
+    <div class="flex">
+       <div class="pageMenu">
+          <pageMenu />
+      </div>
+      <div class="pageContent">
+         <router-view/>
+      </div>
+      
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import pageHeader from './components/pageHeader.vue'
+import pageMenu from './components/pageMenu.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    pageHeader,
+    pageMenu
   }
 }
 </script>
 
 <style>
+body{
+  margin:0;
+  padding:0;
+}
 #app {
+  margin:0;
+  padding:0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.pageHeader{
+  background: #ccc;
+}
+.flex{
+  display:flex;
+}
+.pageMenu{
+  width:20%;
+ background: #f00;
+}
+.pageContent{
+  width:80%;
+  background:#0f0
 }
 </style>
