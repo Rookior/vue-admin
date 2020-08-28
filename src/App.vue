@@ -49,7 +49,7 @@ body{
 }
 .pageMenu{
   width:20%;
- background: #f00;
+ background: #ccc;
 }
 .pageContent{
   width:80%;

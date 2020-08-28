@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>Welcome about</p>
-     <router-view></router-view>
+    <p>面包</p>
+    <p>方便面</p>
   </div>
 </template>
 

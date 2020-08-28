@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p>Welcome about</p>
-     <router-view></router-view>
+    <p>Welcome about profile</p>
   </div>
 </template>
 
