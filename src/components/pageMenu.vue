@@ -99,6 +99,8 @@ export default {
       //this.activeIndex= this.$route.path; // 
       console.log("当前路由",currentRoute)   //
       console.log("所有路由",this.routes)
+      console.log("vue路由对象", this.$router )
+     
       // 通过遍历当前路由的在路由中的信息，实现正确的路由菜单
     }
   }
