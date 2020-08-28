@@ -41,6 +41,12 @@ export default {
       // activeName:"home",
     }
   },
+  watch: {
+    // 也可以通过获取当前路由信息，修改路由当前应该激活的页面
+    $route() {
+      this.setCurrentRoute();
+    }
+  },
   computed: {
     routes() {
       return RouterConfig.routes
@@ -84,6 +90,14 @@ export default {
 
       
       this.$router.push({path:url})
+    },
+    created() {
+      this.setCurrentRoute();
+    },
+    setCurrentRoute() {
+      var currentRoute= this.$route; // 通过他就可以监听到当前路由状态并激活当前菜单
+      //this.activeIndex= this.$route.path; // 
+      console.log(currentRoute)   //
     }
   }
 }
