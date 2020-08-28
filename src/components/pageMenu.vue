@@ -97,7 +97,9 @@ export default {
     setCurrentRoute() {
       var currentRoute= this.$route; // 通过他就可以监听到当前路由状态并激活当前菜单
       //this.activeIndex= this.$route.path; // 
-      console.log(currentRoute)   //
+      console.log("当前路由",currentRoute)   //
+      console.log("所有路由",this.routes)
+      // 通过遍历当前路由的在路由中的信息，实现正确的路由菜单
     }
   }
 }
