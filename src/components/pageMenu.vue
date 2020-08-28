@@ -10,7 +10,7 @@
         </div>
         <div v-else>
             <div v-bind:to="item.path" @click.stop="openNavBar(index)" class="parent" > {{item.meta.title}}</div>
-             <div v-show="navBarOpened[index]">
+             <div v-show="navBarOpenedStore[index]">
               <div  v-for="child in item.children"  class="child" v-bind:class="{ active:  child.name == activeName }"              
                       :key="child.path"
                       >
@@ -37,14 +37,22 @@ export default {
   },
   data(){
     return{
-      navBarOpened:[],
-      activeName:"home",
+       navBarOpened:[],
+      // activeName:"home",
     }
   },
   computed: {
     routes() {
       return RouterConfig.routes
+    },
+    // 将路由用到的数据存储
+    activeName(){
+      return this.$store.state.menu.activeName;
+    }, 
+    navBarOpenedStore(){
+      return this.$store.state.menu.navBarOpenedStore;
     }
+     
   },
   methods:{
     openNavBar(index){
@@ -56,12 +64,25 @@ export default {
       // 用Vue中的方法Vue.set
       // var flag = !this.navBarOpened[index]
       // this.$set(this.navBarOpened,index,flag)
+
+       //将路由数据存储
+       this.$store.commit({
+        type: "savenavBarOpenedStore",
+        "navBarOpenedStore": this.navBarOpened,
+      });
+
+      
     },
     changeRouter(url,name){
      
-       this.activeName = name;
-       console.log( this.activeName);
+      // this.activeName = name;
+      //修改页面数据为store存储
+       this.$store.commit({
+        type: "changeactiveName",
+        activeName: name,
+      });
 
+      
       this.$router.push({path:url})
     }
   }

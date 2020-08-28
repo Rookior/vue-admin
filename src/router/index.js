@@ -8,8 +8,9 @@ const RouterConfig = {
 };
 export { RouterConfig };
 export const router = new VueRouter(RouterConfig);
-router.afterEach((to) => {
-    // 更改页面标题
+
+// 路由更改时修改页面标题
+router.afterEach((to) => {   
     document.title = to.meta.pageTitle || to.meta.title;
 });
 // 重复点击同一个路由解决
