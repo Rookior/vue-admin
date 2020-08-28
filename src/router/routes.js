@@ -75,6 +75,7 @@ export const page404 = {
     component: () => import('../pages/page404.vue')
 };
 // 所有上面定义的路由都要写在下面的routers里
+
 export const routes = [
     About,
     Home,
